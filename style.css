@@ -1,0 +1,281 @@
+/* RESETS */
+
+html, body {
+	height: 100%;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+
+
+/* BASE */
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-color: #feffe2;
+  animation-name: backgroundColorPalette;
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear; 
+	/* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
+}
+@keyframes backgroundColorPalette {
+	0% {
+		background: #ded1bc;
+	}
+	25% {
+		background: #c6e8d5;
+	}
+	50% {
+		background: #f4e5f4;
+	}
+	75% {
+		background: #e9f3c6;
+	}
+	100% {
+		background: #d2ebf7;
+	}
+}
+
+
+b, strong {
+  font-weight: normal;
+}
+
+i, em {
+  font-style: italic;
+}
+
+p:first-child {
+	margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.3;
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  /* background: #FDEE2F; */
+}
+
+a:active { color: black; }
+a:visited { color: black; }
+
+hr {
+  margin: 2em 0;
+  border: 0;
+  border-bottom: 1px dotted #666666;
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+}
+
+.clearer {
+  clear: both;
+}
+
+
+#container {
+  max-width: 1300px;
+  margin: 0 auto 0 auto;
+  padding:0 50px;
+position: relative;
+display: flex;
+}
+
+#sidebar {
+  height: 100vh;
+  width: 20%;
+position: fixed;
+padding-top: 2em;
+}
+#content {
+  width: 75%;
+  position: relative;
+  left: 25%;
+  padding-top: 2em;
+}
+
+#content h2 {
+  font-size: 1.4em;
+  display: block;
+  padding-top: 1em;
+  margin-top: 2em;
+  border-top: 1px dotted #666666;
+  position: relative;
+}
+
+#content h2::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  border-top: 1px dotted #EDEDED;
+}
+
+#content h3 {
+  font-size: 1em;
+  display: inline-block;
+  background: #fff;
+  padding: 5px 6px 2px;
+  margin-top: 0;
+  margin-bottom: 1.25em;
+}
+#content ol li {
+  list-style-type:decimal;
+  list-style-position:outside;
+}
+#content ul,
+#content ol {
+  margin-bottom: 1em;
+  margin-left: 2em;
+}
+#content li {
+  list-style-type: disc;
+  margin-left: 1em;
+}
+#content ul ul li {
+  margin-left: 3em;
+  list-style-type: circle;
+}
+#content a {
+  color: blue;
+  border-bottom: 1px solid blue;
+}
+#content a:hover {
+  background: transparent;
+}
+.anchor {
+  height: 2em;
+}
+#sidebar a {
+color: #666;
+}
+#sidebar a:hover {
+color: blue;
+}
+#sidebar .text {
+	padding-right: 1em;
+}
+
+#sidebar h2 {
+	font-size: 1.4em;
+  }
+
+
+#sidebar p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.section {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  display: inline-block;
+  border-bottom: 1px dotted #666666;
+}
+
+
+nav.menu ul li {
+  list-style-type: none;
+margin-bottom: 0.5em;
+}
+
+nav.menu ul li a {
+	border-bottom: 2px solid #bbff00;
+}
+
+body#welcome nav.menu ul li a.welcome, 
+body#calendar nav.menu ul li a.calendar, 
+body#exercises nav.menu ul li a.exercises, 
+body#journals nav.menu ul li a.journals, 
+body#projects nav.menu ul li a.projects, 
+body#resources nav.menu ul li a.resources {
+	border-bottom: 2px solid #ff00d9;
+}
+
+nav.menu ul li a.icon {
+	border-color: transparent;
+}
+
+nav.menu ul li a.icon img {
+	max-height: 2em;
+}
+
+footer {
+  position: absolute;
+  bottom: 5%;
+}
+
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 800px) {
+
+
+  #container {
+    max-width: 1300px;
+    margin: 0 auto 0 auto;
+    padding:0 50px;
+  position: relative;
+  display: block;
+  }
+  
+  
+  #sidebar {
+    height:auto;
+    width: 100%;
+  padding-top: 2em;
+  position: static;
+  }
+  #content {
+    width: 100%;
+    position: static;
+    left: 0;
+    padding-top: 4em;
+  }
+  
+}
+
+
+
+

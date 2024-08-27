@@ -1,0 +1,310 @@
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif;
+}
+
+#intro {
+    background-image:url(images/pexels-wayne-evans-567186.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+#title {
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10%; /* ADD AT TEND */
+}
+
+h1 {
+    font-size: 80px;
+    color: white;
+    font-weight: 400;
+    font-style:italic;
+}
+h2 {
+    font-size: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    border-radius: 28px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 18px;
+    background: #641111;
+    padding: 10px 20px 10px 20px;
+    margin-top: 50px;
+    text-decoration: none;
+    display: block;
+  }
+  
+.btn:hover {
+    background: #000000;
+    text-decoration: none;
+  }
+
+
+/* PAGE1 INTRO */
+#page1 .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    }
+    
+#page1 .div1 { 
+    grid-area: 1 / 1 / 2 / 3; 
+    padding: 10%;
+}
+#page1 .div2 { 
+    grid-area: 2 / 1 / 3 / 2; 
+    background-image:url(images/pexels-juan-mendez-3075517.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#page1 .div3 { 
+    grid-area: 2 / 2 / 3 / 3; 
+    background-image:url(images/pexels-rdne-stock-project-8865431.jpg);
+    background-size: cover;
+    background-position: top;
+}
+p {
+    font-size: 24px;
+    color: white;
+    line-height: 2;
+}
+.center {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.him, .her {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+}
+.him:hover {
+    background-color: rgba(0, 22, 49, 0.9);
+    color: yellow;
+} 
+.her:hover {
+    background-color: rgba(63, 0, 0, 0.9);
+    color: yellow;
+} 
+h3 {
+    font-style: italic;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-shadow: 2px 2px 5px black;
+}
+
+
+
+footer {
+    background-color: rgb(37, 37, 37);
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+  }
+footer p {
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+footer a {
+    color: #666;
+    text-decoration:none;
+}
+footer a:hover {
+    color: white;
+}
+
+
+/* HUSBAND PAGES */
+#page2-him .parent, 
+#page3-him .parent,
+#page4-him .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+    
+#page2-him .div1, 
+#page3-him .div1, 
+#page4-him .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    padding: 10%;
+}
+#page2-him .div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+    background-image:url(images/pexels-francesco-ungaro-2705357.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#page3-him .div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+    background-image:url(images/pexels-nishant-aneja-2476685.jpg);
+    background-size: cover;
+    background-position: center;
+}
+i {
+    color:#7cc778;
+}
+#page4-him .div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+    background-image:url(images/pexels-davide-locatelli-2768770.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+audio {
+    margin-bottom: 50px;
+    margin-top: -100px;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #696969;
+  }
+
+#outro {
+    background-image:url(images/pexels-jorgearturo-andrade-921025.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+
+/* WIFE PAGES */
+
+#page2-her .parent, 
+#page3-her .parent, 
+#page4-her .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+
+#page2-her .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-image:url(images/pexels-anders-kristensen-13975.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#page3-her .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-image:url(images/pexels-aleksandar-pasaric-3123827.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#page3-her .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-image:url(images/pexels-aleksandar-pasaric-3123827.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#page4-her .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-image:url(images/pexels-nitin-chauhan-16639381.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+#page2-her .div2, 
+#page3-her .div2, 
+#page4-her .div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+    padding: 10%;
+}
+
+
+
+@media screen and (max-width: 800px) {
+#page2-him .parent, 
+#page3-him .parent, 
+#page4-him .parent, 
+#page2-her .parent, 
+#page3-her .parent,
+#page4-her .parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+        
+#page2-him .div1, 
+#page3-him .div1, 
+#page4-him .div1, 
+#page2-her .div1, 
+#page3-her .div1, 
+#page4-her .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+}
+#page2-him .div2, 
+#page3-him .div2, 
+#page4-him .div2, 
+#page2-her .div2, 
+#page3-her .div2, 
+#page4-her .div2 { 
+    grid-area: 2 / 1 / 3 / 2; 
+}
+    h1 {
+        font-size: 60px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+
+}
