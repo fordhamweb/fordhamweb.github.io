@@ -273,6 +273,9 @@ footer {
     left: 0;
     padding-top: 4em;
   }
+	footer {
+		display: none;
+	}
   
 }
 
