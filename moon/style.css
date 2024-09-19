@@ -1,98 +1,121 @@
+/* set all elements to zero margin and padding so I can control them */
+
 * {
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* border box so that paddings and borders are included in height and width measurements */
 }
 #opener {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background-color: black;
-    margin: 0 auto;
+    color: white;
+    background-image: url(moon-images/stars.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
     position: relative;
     overflow: hidden;
 }
+.quote {
+    width: 60%; /* can also use a value like 500px */
+    position: relative;
+    top: 15%;
+    left: 10%;
+    z-index: 100;
+}
 h2 {
-    color: white;
-    font-family: 'Crimson Text', serif;
-    font-size: 42px;
-    font-weight: normal;
-    line-height: 1.3;
+    font-size: 40px;
+    margin-bottom: 25px;
+    font-family: "Kalnia", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
 h3 {
-    color: white;
-    font-family: 'Inclusive Sans', sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-    margin-top: 40px;
+    font-size: 18px;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
 }
-.quote {
-    width: 600px;
-    position: relative;
-    top: 20vw;
-    left: 30vh;
-    z-index: 10;
-    opacity: 0.5;
+a {
+    color: yellow;
+    text-decoration: none;
+}
+a:hover {
+    color: orange;
+    text-decoration: underline;
 }
 .redmoon {
-    background-image: url(images/moon-red.png);
-    background-repeat:no-repeat;
-    background-size:contain;
+    background-image: url(moon-images/moon-red.png);
     width: 600px;
     height: 600px;
+    background-size: contain;
     position: absolute;
-    bottom: -100px;
-    left:-100px;
+    right: -100px;
+    bottom: -50px;
+    z-index: 20;
 }
 .bluemoon {
-    background-image: url(images/moon-blue.png);
-    background-repeat:no-repeat;
-    background-size:contain;
+    background-image: url(moon-images/moon-blue.png);
     width: 800px;
     height: 800px;
+    background-size: contain;
     position: absolute;
-    top: -100px;
-    right: -200px;
-    }
-.bwmoon {
-    background-image: url(images/moon-bw.png);
-    background-repeat:no-repeat;
-    background-size:contain;
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    right: -50px;
-    bottom:-50px;
-    }
-.flex-area {
-    display:flex;
-    flex-direction:row;
-    justify-content: center;
-    background-image:url(images/galaxy.jpg);
-    background-size: cover;
-    background-position: bottom;
+    top: 100px;
+    left: -100px;
+    z-index: 10;
 }
-h4 {
-    font-family: 'Crimson Text', serif;
-    font-size: 30px;
-    margin-bottom: 40px;
-    color: white;
+.graymoon {
+    background-image: url(moon-images/moon-bw.png);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    position: absolute;
+    left: 300px;
+    bottom: -50px;
+    z-index: 15;
+}
+
+/* LISTS SECTION */
+.flex-area {
+    display: flex;
+    flex-direction: row;
+}
+.flexitem {
+    width: 33.3%;
+    margin: 50px;
 }
 ul {
-    list-style-type:none;
+    list-style-type: none;
 }
 li {
-    font-family: 'Inclusive Sans', sans-serif;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 20px;
     border-bottom: 1px dotted gray;
     padding: 10px 0 10px 0;
-    color: rgb(215, 215, 180);
+    color: white;
 }
-.column {
-    width: 300px;
-    margin: 100px 50px 100px 50px;
+h4 {
+    font-family: "Kalnia", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: white;
 }
-span {
-    color: #aaaaaa;
-    font-size: 16px;
-    text-transform: uppercase;
+#lists-section {
+    background-image: url(moon-images/galaxy.jpg);
+    background-size: cover;
+    padding: 100px 0;
+    background-position: bottom;
 }
+
