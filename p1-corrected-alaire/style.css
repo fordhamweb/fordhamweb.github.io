@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+#opener{
+width:100%; /* missing semicolon */
+height:100vh;
+background-image:url(fish-images/rainbowocean.jpg);
+background-size:cover;
+background-repeat: repeat;
+background-position:center;
+text-align:center; /* property should be text-align not align-text */
+position: relative;  /* should be relative so we can position the fish with absolute */
+
+
+}
+
+
+.rainbowfish{
+    background-image: url(fish-images/rainbowfish.png);
+    width:500px; /* resized */
+    height:500px; /* resized */
+    position:absolute; /* should be absolute */
+    right:0%; /* changed to bottom */
+    bottom:0%; /* changed to bottom */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 999;
+
+}
+.title{
+    font-size: 100px;
+    font-family: "Cagliostro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+ 
+
+}
+
+.quote{
+
+    width:50%;
+    /* height: 800px;  removed height; not necessary because the height is determined by the amount of text in the box */
+    position: relative;
+    left: 5%;
+    background-color: rgba(0, 153, 255, 0.788);
+    padding:100px;
+    top: 5%;
+
+
+
+
+
+
+}
+h1{
+    font-size: 100px;
+    font-family: "Cagliostro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+
+}
+
+h2{
+    font-size: 60px;
+    font-family: "Cagliostro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+  h3{
+    font-size:50px;
+    font-family: "GFS Neohellenic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  p{
+    font-size: 50px;
+    font-family: "GFS Neohellenic", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+
+#information{
+    background-color: rgba(33, 157, 252, 0.63);
+    background-size: cover;
+    background-repeat:repeat;
+  
+
+    
+}
+
+.flex-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.flexitem{
+    width:33.3%;
+    margin:50px;
+}
+
+.about{
+    /* height:700px; removed height; not necessary because the height is determined by the amount of text in the box */
+    width: 50%; /* changed to percentage so each flex item is 50% */
+    font-size: 30px;
+    background-color:  rgba(0, 153, 255, 0.788);
+    /* position: relative;
+    bottom: 50%;
+    right:30%; 
+    background-size: cover; */
+margin: 100px;
+padding: 50px;
+
+
+}
+
+.bookcover{
+background-image: url(fish-images/bookcover.jpg);
+width: 50%; /* changed to percentage so each flex item is 50% */
+/* height:700px; removed height; not necessary because the height is determined by the amount of text in the box */
+background-size: contain;
+/* position: relative;
+top: 10%;
+left: 20%; */
+background-repeat: no-repeat; 
+margin: 100px;
+}
+
+#video{
+    background-color: rgba(33, 157, 252, 0.63);
+    background-size: cover;
+    background-repeat: repeat;
+        
+}
+iframe{
+margin: 0 50px;
+width:800px;
+height:800px;
+left:50%;
+top: 10%;
+
+}
+
+#section4{
+background-color: rgba(33, 157, 252, 0.63);
+background-position: bottom;
+background-size: cover;
+font-size: 50px;
+padding-top: 100px; /* added to separate this section from the previous */
+}
+
+.fishincave{
+    background-image: url(fish-images/fishincave.webp);
+    height: 600px;
+    width:100%; /* changed width to 100% so the image will take up the full width of the flexitem */
+    background-size: contain;
+    background-repeat: no-repeat;
+   /* position: relative;
+    top:100px;
+    z-index:9; 
+    position is not necessary */
+}
+.fishandfish{
+    background-image: url(fish-images/fishandfish.jpg);
+    height: 600px;
+    width:100%; /* changed width to 100% so the image will take up the full width of the flexitem */
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* position: relative;
+    z-index: 9;
+    position is not necessary
+    */
+
+}
+.threefish{
+    background-image: url(fish-images/threefish.webp);
+    height: 600px;
+    width:100%; /* changed width to 100% so the image will take up the full width of the flexitem */
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* position: relative;
+    position is not necessary */
+ 
+}
