@@ -69,6 +69,7 @@ h2 {
     grid-row-gap: 0px;
     width: 100%;
     height: 100vh;
+    
     }
     
 .div1 { 
@@ -76,7 +77,8 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10%;
+    padding: 0 5%;
+    flex-direction: column;
 }
 .div2 { 
     grid-area: 2 / 1 / 3 / 2; 
@@ -102,6 +104,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 144, 0.5);
@@ -125,6 +128,7 @@ h3 {
     height: 100%;
     background-color: rgba(169, 0, 28, 0.5);
     transition: all 0.5s;
+    flex-direction: column;
 }
 .her:hover {
     background-color: rgba(0, 0, 0, 0.5);
@@ -152,4 +156,87 @@ footer a {
 }
 footer a:hover {
     color: yellow;
+}
+
+/* HIS AND HER PAGES */
+
+#page2-him .parent, 
+#page3-him .parent, 
+#page2-her .parent, 
+#page3-her .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    } 
+#page2-him .div1,
+#page3-him .div1, 
+#page2-her .div1, 
+#page3-her .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-color: black;
+    font-size: 24px;
+    color: white;
+    line-height: 1.5;
+    padding: 0 10%;
+}
+#page2-him .div2, 
+#page3-him .div2, 
+#page2-her .div2, 
+#page3-her .div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+    background-image: url(story-images/pexels-francesco-ungaro-2705357.jpg);
+    background-size: cover;
+    background-position: center;
+}
+i {
+    color: green;
+    font-style: italic;
+}
+#page3-him .div2 {
+    background-image: url(story-images/pexels-davide-locatelli-2768770.jpg);
+}
+audio {
+    margin-bottom: 100px;
+}
+#endpage {
+    background-image: url(story-images/pexels-jorgearturo-andrade-921025.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+#endpage #titlecontainer p {
+    padding: 0 10%;
+}
+#endpage #titlecontainer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#page2-her .div2 {
+    background-image: url(story-images/pexels-aleksandar-pasaric-3123827.jpg);
+}
+#page3-her .div2 {
+    background-image: url(story-images/pexels-nitin-chauhan-16639381.jpg);
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
+    #page2-him .div1,
+    #page3-him .div1, 
+    #page2-her .div1, 
+    #page3-her .div1 { 
+    font-size: 16px;
+    }
+    audio {
+        width: 70%;
+    }
 }
