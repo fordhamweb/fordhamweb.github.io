@@ -1,154 +1,103 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
 }
-
 body {
     background-color: gray;
 }
-
 #orb-one {
     width: 100%;
     height: 100vh;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    opacity: 0.3;
-    animation-name: shape;
+    animation-name: shapeshift;
     animation-duration: 5s;
-    animation-timing-function: ease-in-out;
     animation-delay: 0;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    /* these 3 properties center the contents */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-
-@keyframes shape {
-0% {
-    border-radius: 45% 65% 55% 75%;
-}
-50% {
-    border-radius: 55% 75% 35% 45%;
-}
-100% {
-    border-radius: 50% 60% 30% 70%;
-}
+@keyframes shapeshift {
+    0% {
+        border-radius: 45% 65% 55% 75%;
+    }
+    50% {
+        border-radius: 55% 75% 35% 45%;
+    }
+    100% {
+        border-radius: 50% 60% 30% 70%;
+    }
 }
 
 #orb-two {
     width: 90%;
     height: 90vh;
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.3);
     border-radius: 50%;
-    opacity: 0.2;
-    animation-name: shape;
-    animation-duration: 15s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    margin: auto;
-    z-index: 8;
-}
-h1 {
-    font-size: 16px;
-    text-align: center;
-}
-.bubble {
-    width: 50px;
-    height: 50px;
-    border: 1px dotted black;
-    border-radius: 50%;
-    z-index: 9;
-    background-image: radial-gradient(gray, white)
-}
-.a {
     position: absolute;
     top: 5%;
-    left: 10%;
-    animation: pulsate 2s ease-in-out infinite alternate;
+    left: 5%;
+    z-index: 99;
+    animation-name: shapeshift;
+    animation-duration: 10s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+/* 3 properties for centering the content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.b {
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
-    animation: pulsate 5s ease-in-out 2s infinite alternate;
-
-}
-.c {
-    position: absolute;
-    top: 55%;
-    left: 40%;
-    animation: pulsate 10s ease-in-out 0s infinite alternate;
-
-}
-@keyframes pulsate {
-    0% {
-        transform: scale(0,0);
-    }
-    100% {
-        transform: scale(1,1);
-    }
+h1 {
+    font-size: 20px;
+    color: white;
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1100px) {
     body {
         background-color: pink;
     }
     #orb-one {
-        background-color: yellow;
+        background-color: rgba(137, 43, 226, 0.3);
+        animation-duration: 2s;
     }
     #orb-two {
-        background-color: aqua;
+        background-color:rgba(0, 255, 255, 0.3);
+        animation-duration: 15s;
     }
     #cupcake {
         width: 30%;
         height: 30vh;
-        position: absolute;
-        top:0;
-        right:0;
-        bottom:0;
-        left:0;
-        margin: auto;
-        background-image: url(images/cupcake1.png);
+        background-image: url(cupcake-images/cupcake1.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        z-index: 999;
+        position: absolute;
+        z-index: 100;
+        top: 25%;
+        left: 20vh;
     }
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:800px) {
     body {
-        background-color: blue;
+        background-color:chocolate;
     }
     #orb-one {
-        background-color: green;
+        background-color: rgba(127, 255, 212, 0.3);
     }
     #orb-two {
-        background-color: silver;
+        background-color: rgba(165, 42, 42, 0.3);
     }
-    #cupcake {
-        width: 30%;
-        height: 30vh;
-        position: absolute;
-        top:0;
-        right:0;
-        bottom:0;
-        left:0;
-        margin: auto;
-        background-image: url(images/cupcake2.png);
+    #cupcake2 {
+        width: 40%;
+        height: 40vh;
+        background-image: url(cupcake-images/cupcake2.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        z-index: 999;
+        position: absolute;
+        z-index: 101;
+        bottom: 25%;
+        right: 20vh;
     }
 }
