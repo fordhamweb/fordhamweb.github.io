@@ -1,15 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
-}
-body {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 400;
-    font-style: normal;
+    box-sizing: border-box;
 }
 
-/* TITLE PAGE */
 #title {
     background-image: url(story-images/pexels-wayne-evans-567186.jpg);
     width: 100%;
@@ -17,39 +11,44 @@ body {
     background-size: cover;
     background-position: center;
 }
+body {
+    font-family: "Baskervville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 #titlecontainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-    flex-direction: column;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 h1 {
-    color: white;
     font-size: 7vw;
+    color: white;
 }
 h2 {
+    font-size: 3vw;
     color: white;
-    font-size: 20px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
 }
 .btn {
-    font-size: 20px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    text-transform: uppercase;
     display: block;
-    background-color:brown;
+    background-color: brown;
+    border-radius: 20px;
     color: white;
-    text-decoration: none;
     padding: 10px 20px;
     margin-top: 50px;
-    border-radius: 20px;
+    font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
     transition: all 1s;
 }
 .btn:hover {
@@ -57,10 +56,8 @@ h2 {
     color: yellow;
 }
 
-/* PAGE1 */
-#page1 {
-    background-color: black;
-}
+/* --- PAGE 1 --- */
+
 .parent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -69,7 +66,6 @@ h2 {
     grid-row-gap: 0px;
     width: 100%;
     height: 100vh;
-    
     }
     
 .div1 { 
@@ -78,19 +74,19 @@ h2 {
     align-items: center;
     justify-content: center;
     padding: 0 5%;
-    flex-direction: column;
 }
 .div2 { 
     grid-area: 2 / 1 / 3 / 2; 
     background-image: url(story-images/pexels-juan-mendez-3075517.jpg);
     background-size: cover;
-    background-position: center;
 }
 .div3 { 
     grid-area: 2 / 2 / 3 / 3; 
     background-image: url(story-images/pexels-rdne-stock-project-8865431.jpg);
     background-size: cover;
-    background-position: top;
+}
+#page1 {
+    background-color: black;
 }
 p {
     color: white;
@@ -99,144 +95,107 @@ p {
 }
 .him {
     color: white;
-    text-align: center;
     text-decoration: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 1s;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 144, 0.5);
-    transition: all 0.5s;
-}
-.him:hover {
-    background-color: rgba(0, 0, 0, 0.5);
 }
 h3 {
-    font-style: italic;
     font-size: 4vw;
+    font-style: italic;
+}
+.him:hover, .her:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: yellow;
 }
 .her {
     color: white;
-    text-align: center;
     text-decoration: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(169, 0, 28, 0.5);
-    transition: all 0.5s;
-    flex-direction: column;
+    transition: all 1s;
 }
-.her:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* FOOTER */
 footer {
     background-color: gray;
     width: 100%;
     text-align: center;
     position: fixed;
     bottom: 0;
-    z-index: 999;
+    z-index: 9999;
 }
 footer p {
-    text-transform: uppercase;
     font-family: "Roboto", sans-serif;
-    font-weight: 500;
+    font-optical-sizing: auto;
+    font-weight: 300;
     font-style: normal;
-    font-size: 15px;
+    font-variation-settings:
+      "wdth" 100;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 footer a {
-    color: lightgrey;
+    color: yellow;
     text-decoration: none;
 }
 footer a:hover {
-    color: yellow;
+    color: white;
 }
 
-/* HIS AND HER PAGES */
+/* -- HIS PAGES -- */
 
+#page2-him, 
+#page3-him {
+    background-color: black;
+}
 #page2-him .parent, 
-#page3-him .parent, 
-#page2-her .parent, 
-#page3-her .parent {
+#page3-him .parent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    } 
-#page2-him .div1,
-#page3-him .div1, 
-#page2-her .div1, 
-#page3-her .div1 { 
-    grid-area: 1 / 1 / 2 / 2; 
-    background-color: black;
-    font-size: 24px;
-    color: white;
-    line-height: 1.5;
-    padding: 0 10%;
-}
-#page2-him .div2, 
-#page3-him .div2, 
-#page2-her .div2, 
-#page3-her .div2 { 
-    grid-area: 1 / 2 / 2 / 3; 
-    background-image: url(story-images/pexels-francesco-ungaro-2705357.jpg);
-    background-size: cover;
-    background-position: center;
-}
+    }
+    
+#page2-him .div1, 
+#page3-him .div1 { 
+        grid-area: 1 / 1 / 2 / 2; 
+    }
+#page2-him .div2 { 
+        grid-area: 1 / 2 / 2 / 3; 
+        background-image: url(story-images/pexels-francesco-ungaro-2705357.jpg);
+    }
 i {
-    color: green;
     font-style: italic;
+    color:chartreuse;
 }
-#page3-him .div2 {
+#page3-him .div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
     background-image: url(story-images/pexels-davide-locatelli-2768770.jpg);
+    background-position: center;
 }
 audio {
     margin-bottom: 100px;
 }
+
+/* -- END PAGE -- */
+
 #endpage {
     background-image: url(story-images/pexels-jorgearturo-andrade-921025.jpg);
-    width: 100%;
-    height: 100vh;
     background-size: cover;
     background-position: center;
 }
-#endpage #titlecontainer p {
-    padding: 0 10%;
-}
 #endpage #titlecontainer {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-#page2-her .div2 {
-    background-image: url(story-images/pexels-aleksandar-pasaric-3123827.jpg);
-}
-#page3-her .div2 {
-    background-image: url(story-images/pexels-nitin-chauhan-16639381.jpg);
-}
-
-@media screen and (max-width: 800px) {
-    h1 {
-        font-size: 30px;
-    }
-    h2 {
-        font-size: 16px;
-    }
-    p {
-        font-size: 16px;
-    }
-    #page2-him .div1,
-    #page3-him .div1, 
-    #page2-her .div1, 
-    #page3-her .div1 { 
-    font-size: 16px;
-    }
-    audio {
-        width: 70%;
-    }
+    padding: 0 5%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
