@@ -125,6 +125,7 @@ h3 {
     align-items: center;
     justify-content: center;
     transition: all 1s;
+    flex-direction: column;
 }
 footer {
     background-color: gray;
@@ -152,14 +153,18 @@ footer a:hover {
     color: white;
 }
 
-/* -- HIS PAGES -- */
+/* -- HIS / HER PAGES -- */
 
 #page2-him, 
-#page3-him {
+#page3-him, 
+#page2-her,
+#page3-her {
     background-color: black;
 }
 #page2-him .parent, 
-#page3-him .parent {
+#page3-him .parent,
+#page2-her .parent,
+#page3-her .parent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -187,6 +192,20 @@ i {
 audio {
     margin-bottom: 100px;
 }
+#page2-her .div2 {
+    grid-area: 1 / 1 / 2 / 2; 
+    background-image: url(story-images/pexels-nishant-aneja-2476685.jpg);
+    background-position: center;
+}
+#page2-her .div1,
+#page3-her .div1 {
+    grid-area: 1 / 2 / 2 / 3; 
+}
+#page3-her .div2 {
+    grid-area: 1 / 1 / 2 / 2; 
+    background-image: url(story-images/pexels-nitin-chauhan-16639381.jpg);
+    background-position: center;
+}
 
 /* -- END PAGE -- */
 
@@ -198,4 +217,34 @@ audio {
 #endpage #titlecontainer {
     padding: 0 5%;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 600px) {
+#page2-him .parent, 
+#page3-him .parent,
+#page2-her .parent,
+#page3-her .parent {
+display: block;
+}
+#page2-him .div2, 
+#page3-him .div2,
+#page2-her .div2,
+#page3-her .div2 {
+    height: 100%;
+}
+#page2-him .div1, 
+#page3-him .div1,
+#page2-her .div1,
+#page3-her .div1 {
+    padding: 20% 5%;
+}
+h3 {
+    font-size: 40px;
+}
+h1 {
+    font-size: 50px;
+}
+.div2 {
+    background-position: center;
+}
 }
