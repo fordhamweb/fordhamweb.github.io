@@ -1,103 +1,136 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body {
-    background-color: gray;
+background-color: pink;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
-#orb-one {
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    animation-name: shapeshift;
-    animation-duration: 5s;
-    animation-delay: 0;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-@keyframes shapeshift {
-    0% {
-        border-radius: 45% 65% 55% 75%;
-    }
-    50% {
-        border-radius: 55% 75% 35% 45%;
-    }
-    100% {
-        border-radius: 50% 60% 30% 70%;
-    }
-}
-
-#orb-two {
-    width: 90%;
-    height: 90vh;
-    background-color: rgba(255, 255, 0, 0.3);
-    border-radius: 50%;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    z-index: 99;
-    animation-name: shapeshift;
-    animation-duration: 10s;
-    animation-delay: 0;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-/* 3 properties for centering the content */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#headline {
+width: 80%;
+margin: 5vh auto;
+position: relative;
 }
 h1 {
-    font-size: 20px;
-    color: white;
+font-family: "Oswald", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: normal;
+text-transform: uppercase;
+/*font-size: 250px;*/
+font-size: 16vw;
+line-height: 1;
+color: white;
+text-shadow: 2px 2px 2px black;
+}
+#content {
+    display: flex;
+    width: 80%;
+margin: 10vh auto;
+}
+.column {
+    width: 50%;
+}
+h2 {
+   font-size: 32px; /* 2vw */
+    font-weight: 500;
+    line-height: 1.4;
+    margin-right: 20%;
+}
+p {
+font-size: 22px;
+line-height: 1.5;
+margin-bottom: 10px;
 }
 
-@media screen and (max-width:1100px) {
+#cupcake {
+width: 150px;
+height: 150px;
+background-image: url(cupcake-images/cupcake1.png);
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+position: absolute;
+z-index: 100;
+top: 15vh;
+left: 5%;
+animation: rotate 5s 1s infinite alternate;
+}
+#cupcake2 {
+width: 250px;
+height: 250px;
+background-image: url(cupcake-images/cupcake2.png);
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+position: absolute;
+z-index: 101;
+top: 10vh;
+right: 5%;
+animation: rotate 10s 3s infinite alternate-reverse;
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+#bottom {
+    display: none;
+}
+#bottom img {
+    width: 100%;
+    height: auto;
+}
+
+
+@media screen and (max-width:1200px) {
     body {
-        background-color: pink;
-    }
-    #orb-one {
-        background-color: rgba(137, 43, 226, 0.3);
-        animation-duration: 2s;
-    }
-    #orb-two {
-        background-color:rgba(0, 255, 255, 0.3);
-        animation-duration: 15s;
-    }
-    #cupcake {
-        width: 30%;
-        height: 30vh;
-        background-image: url(cupcake-images/cupcake1.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        z-index: 100;
-        top: 25%;
-        left: 20vh;
+        background-color:rgb(135, 135, 255);
     }
 }
-
-@media screen and (max-width:800px) {
+@media screen and (max-width:900px) {
     body {
         background-color:chocolate;
     }
-    #orb-one {
-        background-color: rgba(127, 255, 212, 0.3);
+    #content {
+    display: block;
     }
-    #orb-two {
-        background-color: rgba(165, 42, 42, 0.3);
+    .column {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    h2 {
+   font-size: 24px; /* 2vw */
+}
+p {
+font-size: 18px;
+}
+
+    #cupcake {
+        background-image: url(cupcake-images/cupcake1-eaten.png);
+        width: 100px;
+height:100px;
+        top: 150px;
+
     }
     #cupcake2 {
-        width: 40%;
-        height: 40vh;
-        background-image: url(cupcake-images/cupcake2.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        z-index: 101;
-        bottom: 25%;
-        right: 20vh;
+width: 150px;
+height:150px;
+        background-image: url(cupcake-images/cupcake2-eaten.png);
+        top: 150px;
     }
+#bottom {
+    display: block;
+}
 }
