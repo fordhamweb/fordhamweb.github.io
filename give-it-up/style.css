@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+section {
+    padding: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2 {
+    font-size: 5vw;
+    line-height: 1.4;
+}
+.streets {
+    height: 100vh;
+    width: 100%;
+    background-image: url(images/streets.png);
+    background-size: cover;
+    background-position: center;
+}
+.person {
+    align-items:flex-start;
+}
+.walking {
+    width: 200px;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.walking:nth-of-type(2) {
+    width: 300px;
+    margin-top: 30%;
+}
+.walking:nth-of-type(3) {
+    width: 400px;
+    margin-top: 60%;
+}
+h3 {
+    font-size: 2vw;
+}
+.choose {
+    display: flex;
+}
+.choose div {
+    width: 50%;
+}
+.choose div a {
+    background-color: black;
+    display: block;
+    margin: 10%;
+    padding: 10%;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: all 1s;
+    position: relative;
+    top: 0;
+}
+.choose div a:hover {
+    background: red;
+    top: 30px;
+}
+
+.blackbg {
+    background: black;
+    color: white;
+}
+.clock {
+    height: 80vh;
+    width: 100%;
+    background-image: url(images/clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.clock:hover {
+    background-image: url(images/watch2.png);
+}
+.quote div {
+    width: 50%;
+}
+.police {
+    height: 80vh;
+    width: 100%;
+    background-image: url(images/police.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.police:hover {
+    background-image: url(images/police3.png);
+}
+.animate {
+        animation: grow 1s 0s infinite alternate;
+
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(200%);
+        opacity: 0.5;
+    }
+}
+.streets-end {
+    height: 100vh;
+    width: 100%;
+    background-image: url(images/street2.png);
+    background-size: cover;
+    background-position: center;
+}
