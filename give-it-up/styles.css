@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+h2 {
+    font-size: 5vw;
+    line-height: 1.4;
+}
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+}
+.streets {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/streets.png);
+    background-size: cover;
+    background-position: center;
+}
+.walking {
+    width: 20%;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.walking:nth-of-type(2) {
+    width: 30%;
+    margin-top: 30%;
+}
+.walking:nth-of-type(3) {
+    width: 50%;
+    margin-top: 50%;
+}
+.person {
+    align-items: flex-start;
+}
+h3 {
+    font-size: 2vw;
+    line-height: 1.4;
+}
+.choose a {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 10%;
+    margin: 10%;
+    transition: all 1s;
+}
+.choose div {
+    width: 50%;
+}
+.choose a:hover {
+    background-color: red;
+    margin-bottom: 30px;
+}
+.blackbg {
+    background-color: black;
+    color: white;
+}
+.clock {
+    width: 100%;
+    height: 80vh;
+    background-image: url(images/clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+.clock:hover {
+    background-image: url(images/watch2.png);
+    cursor: pointer;
+}
+.quote div {
+    width: 50%;
+}
+.animate {
+    animation: grow 1s 0s infinite alternate;
+}
+@keyframes grow {
+    0% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(200%);
+        opacity: 0.5;
+    }
+}
+.police {
+    width: 100%;
+    height: 80vh;
+    background-image: url(images/police.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+.police:hover {
+    background-image: url(images/police3.png);
+    cursor: pointer;
+}
+.street-end {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/street2.png);
+    background-size: cover;
+    background-position: center;
+}
