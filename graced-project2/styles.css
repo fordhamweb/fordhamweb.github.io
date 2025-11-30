@@ -1,0 +1,570 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+/* adding font from file*/
+@font-face {
+    font-family:'LostVietnam';
+    src: url(fonts/LostVietnam-Regular.otf);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: url("images/background.png") no-repeat center center;
+    background-size: cover;
+    font-family: "adorn-roman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#landing {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.title-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1{
+    font-family: "lostvietnam", sans-serif;
+    font-size: 6rem;
+    color: #e22107;
+}
+
+
+.character-left,
+.character-right {
+    position: absolute;
+    bottom: 0;
+    height: 80vh;
+    object-fit: contain;
+}
+
+/* Left (Tấm) */
+.character-left {
+    left: 0;
+}
+
+/* Right (Cám) */
+.character-right {
+    right: 0;
+}
+
+/* Button */
+.start-btn {
+    margin-top: 1.5rem;
+    padding: 0.3rem 1rem;
+    font-family: "adorn-roman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+    background: transparent;
+    border: 2px solid #e22107;
+    border-radius: 12px;
+    color: #e22107;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.start-btn:hover {
+    background: #e22107;
+    color: white;
+}
+
+/* ---------- PAGE 1 LAYOUT ---------- */
+
+#page2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+}
+
+/* ---------- TEXT BLOCK ---------- */
+
+.text-block {
+    width: 60%;
+    max-width: 800px;
+    font-size: 1.2rem;
+    line-height: 1.65rem;
+    color: #2a1a18;
+}
+
+.text-block p {
+    margin-bottom: 0.8rem;
+}
+
+/* ---------- CHOICES ---------- */
+
+.choices {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 200px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+/* ---------- ILLUSTRATION ---------- */
+
+.page2-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.back-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+
+    font-size: 0.9rem;
+    color: #e221078d;
+    text-decoration: none;
+
+    border: 1.5px solid #e221078d;
+    padding: 0.3rem 0.9rem;
+    border-radius: 10px;
+    background: rgba(255, 240, 236, 0.7);
+
+    opacity: 0.7;
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    opacity: 1;
+    background: #e22107;
+    color: #fff3ef;
+}
+
+/* ---------- PAGE 3 ---------- */
+
+
+#resultpage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centers vertically */
+    align-items: center;        /* centers horizontally */
+
+    text-align: center;
+}
+
+/* Center text block */
+#resultpage .text-block {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #2a1a18;
+    margin-bottom: 2rem;  /* space between text and next button */
+}
+
+/* NEXT BUTTON BELOW TEXT */
+.next-btn {
+    padding: 0.5rem 1.8rem;
+    font-size: 1.3rem;
+    color: #e22107;
+    background: transparent;
+    border: 2px solid #e22107;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.next-btn:hover {
+    background: #e22107;
+    color: #ffece6;
+}
+
+
+.page4-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.page6-illustration {
+    position: absolute;
+    right: 4rem;
+    bottom: 3rem;
+    height: 50vh;        /* control the HEIGHT and let width auto-scale */
+    width: auto;
+    object-fit: contain;
+}
+
+.page8-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.page9-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 60vh;
+    object-fit: contain;
+}
+.page11-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 60vh;
+    object-fit: contain;
+}
+
+.page13-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 40vh;
+    object-fit: contain;
+}
+
+#page13 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 280px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page13 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+
+.page14-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 70vh;
+    object-fit: contain;
+}
+
+.page16-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 70vh;
+    object-fit: contain;
+}
+
+#page16 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 350px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page16 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+.page18-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+#page18 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 350px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page18 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+.page19-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 60vh;
+    object-fit: contain;
+}
+
+#page21 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 350px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page21 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+.page21-illustration {
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.page22-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.page24-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 4rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.page26-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 3rem;
+    height: 90vh;
+    object-fit: contain;
+}
+
+
+#page26 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 400px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page26 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+.page28-illustration {
+    position: absolute;
+    right: 5rem;
+    bottom: 3rem;
+    height: 50vh;
+    object-fit: contain;
+}
+
+#page28 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 200px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page28 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+.page29-illustration {
+    position: absolute;
+    right: 15rem;
+    bottom: 3rem;
+    height: 85vh;
+    object-fit: contain;
+}
+
+
+#page29 .choice-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #e22107;
+    border: 2px solid #e22107;
+    border-radius: 18px;
+    background: rgba(255, 240, 236, 0.102);
+    text-align: center;
+    line-height: 1.4rem;
+    text-decoration: none;
+    width: 350px;
+    display: flex;                
+    align-items: center;        
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+#page29 .choice-btn:hover {
+    background: #e22107;
+    color: #fff3ef;
+    cursor: pointer;
+}
+
+.page31-illustration {
+    position: absolute;
+    right: 10rem;
+    bottom: 0rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+
+.page32-illustration {
+    position: absolute;
+    right: 3rem;
+    bottom: 2rem;
+    height: 70vh;
+    object-fit: contain;
+}
+
+.page33-illustration {
+    position: absolute;
+    right: 5rem;
+    bottom: 3rem;
+    height: 80vh;
+    object-fit: contain;
+}
+
+/* Base fade animation */
+@keyframes fadeInLine {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.text-block span {
+    display: block;
+    opacity: 0;
+    animation: fadeInLine 1s ease forwards;
+}
+
+.text-block span:nth-of-type(1) { animation-delay: 0.2s; }
+.text-block span:nth-of-type(2) { animation-delay: 0.9s; }
+.text-block span:nth-of-type(3) { animation-delay: 1.6s; }
+.text-block span:nth-of-type(4) { animation-delay: 2.3s; }
+
+.choices {
+    opacity: 0;
+    animation: fadeInLine 1s ease forwards;
+    animation-delay: 3.2s; /* adjust based on your lines */
+}
+
+.next {
+    opacity: 0;
+    animation: fadeInLine 1s ease forwards;
+    animation-delay: 2s; 
+}
