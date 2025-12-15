@@ -1,0 +1,578 @@
+:root {
+    --pastel-peach: #FFD1BA;
+    --pastel-lavender: #C7B8EA;
+    --pastel-blue: #A9D8FF;
+    --pastel-mint: #B8E3C7;
+    --text-dark: #2C2C2C;
+    --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+
+img { max-width: 100%; display: block; }
+
+/* ---------------------------------------------------------
+   ANIMATED PASTEL GRADIENT BACKGROUND
+--------------------------------------------------------- */
+.pastel-bg {
+    background: linear-gradient(135deg,
+        var(--pastel-peach),
+        var(--pastel-lavender),
+        var(--pastel-blue),
+        var(--pastel-mint));
+    background-size: 400% 400%;
+    animation: pastelMove 12s ease infinite;
+}
+
+@keyframes pastelMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------------------------------------------------------
+   TYPOGRAPHY
+--------------------------------------------------------- */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 0 15px;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION
+--------------------------------------------------------- */
+
+.hero {
+    display: flex;
+    align-items: flex-start;
+    padding: 120px 40px 80px;
+    min-height: 1500px;
+}
+
+
+.hero-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hero-left {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.hero-right {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Slideshow container */
+
+.slideshow {
+    width: 100%;
+    height: 600px;
+    max-width: 1200px;   /* controls how BIG it can get */
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+
+
+/* Images */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+
+/* Active slide */
+.slide.active {
+    opacity: 1;
+
+}
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-right {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .slideshow {
+        max-width: 100%;
+    }
+}
+
+
+/* Buttons */
+.btn {
+    display:inline-block;
+    margin-top:10px;
+    padding:5px;
+    font-weight:400;
+    text-decoration:none;
+    background:none;
+    color:var(--text-dark);
+    border-radius:10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.lightbox-img {
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+.lightbox-close {
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+/* Sections */
+section { padding:80px 20px; max-width:1000px; margin:auto; }
+p { font-size:18px; }
+
+/* Footer */
+footer {
+    text-align:center;
+    padding:40px;
+    background: var(--pastel-peach);
+    margin-top:60px;
+}
+footer a { color: var(--text-dark); font-weight:600; text-decoration:none; }
+
+/* Utility classes */
+.rounded { border-radius:12px; }
+.center { text-align:center; }
+
+.home-link {
+    color: inherit;          /* keeps same color */
+    text-decoration: none;   /* removes underline */
+    font-family: inherit;    /* keeps same font */
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+}
+
+.home-link:hover,
+.home-link:visited,
+.home-link:active,
+.home-link:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ----------------------------
+   GALLERY STYLE
+----------------------------- */
+
+
+/* Outer gallery container */
+.gallery-hero-right {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Main grid */
+.gallery-hero-right .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* first row: 3 columns */
+    gap: 15px;
+    width: 100%;
+}
+
+/* All gallery images */
+.gallery-hero-right .gallery-item {
+    width: 100%;
+    height: auto;           /* maintain aspect ratio */
+    object-fit: contain;    /* no cropping */
+    display: block;
+}
+
+/* Row 2 container: image 3 + stacked images */
+.row2-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* image3 narrower (1.5 fraction), stacked images same (1 fraction) */
+    gap: 15px;                        /* spacing between images */
+    grid-column: 1 / 4;               /* span full width of gallery grid */
+}
+
+/* Image 3 */
+.gallery-item-3 {
+    width: 100%;       /* fill its grid cell */
+    height: auto;      /* maintain aspect ratio */
+    object-fit: contain;
+}
+
+/* Stacked images container */
+.stacked-images {
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* split height equally */
+    gap: 15px;                   /* vertical gap between stacked images */
+}
+
+/* Stacked images themselves */
+.stacked-images .gallery-item {
+    width: 100%;
+    height: 100%;       /* fill half of image3 height */
+    object-fit: contain; /* scale without cropping */
+}
+
+/* ----------------------------
+   INSTALLATION PANELS STYLE
+----------------------------- */
+/* Free-form, masonry-style gallery */
+.panels-hero-right {
+    width: 75%;
+    margin-left: auto;
+    margin-right: 80px; /* optional right spacing */
+}
+
+.panels-hero-right .panels {
+    column-count: 3;       /* number of columns */
+    column-gap: 10px;      /* horizontal spacing */
+}
+
+.panels-hero-right .panel-item {
+    break-inside: avoid;   /* prevents item from splitting between columns */
+    margin-bottom: 10px;   /* vertical spacing */
+    display: block;
+}
+
+.panels-hero-right .panel-item img {
+    width: 100%;
+    height: auto;          /* maintain original aspect ratio */
+    display: block;
+    object-fit: contain;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Optional hover zoom effect */
+.panels-hero-right .panel-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Lightbox container */
+.panels-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: flex-start; /* image on left */
+    align-items: center;
+    padding: 20px;  /* space around image */
+    z-index: 1000;
+}
+
+/* Enlarged image */
+.panels-lightbox img {
+    max-width: 70%; /* occupy most of the screen */
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+/* Right-side title/description panel */
+.panels-lightbox .info {
+    color: white;
+    margin-left: 20px;
+    max-width: 25%;   /* small panel for title/desc */
+    font-size: 20px;
+}
+
+/* Close button */
+.panels-lightbox .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ----------------------------
+   ILLUSTRATION GALLERY STYLE
+----------------------------- */
+
+/* 4x2 Grid Gallery */
+.illustration-hero-right {
+    width: 75%;
+    margin-left: auto;
+    margin-right: 80px;
+}
+
+.illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, 1fr);    /* 2 rows */
+    gap: 10px;
+}
+
+.illustration-grid .gallery-item {
+    width: 100%;
+    height: 200px; /* fixed height for uniformity */
+    overflow: hidden;
+}
+
+.illustration-grid .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* crops top/bottom slightly if needed */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.illustration-grid .gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox styling (same as previous) */
+.lightbox {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.lightbox-content {
+    display: flex;
+    max-width: 90%;
+    max-height: 90%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.lightbox-img {
+    max-width: 70%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.lightbox-title {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-title h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #333;
+}
+
+.lightbox-close {
+    position: absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+/* Extended illustration grid */
+.illustration-grid-extended {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid for precise sizing */
+    gap: 10px;
+    width: 100%; /* same as original 4x2 grid */
+    margin-left: auto;
+    margin-right: 80px;
+    margin-top: 10px;
+}
+
+/* Top row: 3 equal images spanning total width */
+.illustration-grid-extended .gallery-item:nth-child(1) {
+    grid-column: span 4;  /* 4/12 = 33.33% width */
+    grid-row: 1;
+    height: 400px; /* adjust height proportionally */
+}
+.illustration-grid-extended .gallery-item:nth-child(2) {
+    grid-column: span 4;
+    grid-row: 1;
+    height: 400px;
+}
+.illustration-grid-extended .gallery-item:nth-child(3) {
+    grid-column: span 4;
+    grid-row: 1;
+    height: 400px;
+}
+
+/* Bottom row: 2 images with 60% / 40% width */
+.gallery-item-left {
+    grid-column: 1 / span 7; /* 7/12 ≈ 60% */
+    grid-row: 2;
+    height: 400px;
+}
+
+.gallery-item-right {
+    grid-column: 8 / span 5; /* 5/12 ≈ 40% */
+    grid-row: 2;
+    height: 500px;
+}
+
+/* All images */
+.illustration-grid-extended .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.illustration-grid-extended .gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive: stack vertically */
+@media (max-width: 900px) {
+    .illustration-grid-extended {
+        grid-template-columns: 1fr;
+    }
+    .illustration-grid-extended .gallery-item {
+        grid-column: 1;
+        grid-row: auto;
+        height: 200px;
+    }
+}
+
+
+
+/* -----------------------------------------------
+   Free-form masonry-style gallery for designs
+------------------------------------------------- */
+.designs-hero-right {
+    width: 75%;
+    margin-left: auto;
+    margin-right: 80px; /* optional right spacing */
+}
+
+.designs-hero-right .designs-gallery {
+    column-count: 3;       /* number of columns */
+    column-gap: 10px;      /* horizontal spacing between columns */
+}
+
+.designs-hero-right .gallery-item {
+    break-inside: avoid;   /* prevents items from splitting between columns */
+    margin-bottom: 10px;   /* vertical spacing */
+    display: block;
+}
+
+.designs-hero-right .gallery-item img {
+    width: 100%;
+    height: auto;          /* maintain original aspect ratio */
+    display: block;
+    object-fit: cover;     /* crops top/bottom slightly to fill space */
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect: slight zoom */
+.designs-hero-right .gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* White hero background for biography */
+.white-bg {
+    background: #FFFFFF; /* clean white background */
+    padding: 120px 40px 80px;
+    min-height: 600px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.biography-text {
+    width: 100%;
+    max-width: 800px;   /* keeps it readable */
+    margin-left: 0;
+    margin-top: 40px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #2C2C2C;
+}
+
+
+.biography-text h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+
+    .biography-text {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
+
+/* Biography page: disable two-column layout */
+.biography .hero-content {
+    flex-direction: column;
+}
+

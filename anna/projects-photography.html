@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Kim | Photography</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="projects">
+
+<header class="hero pastel-bg">
+    <div class="hero-content">
+        <!-- LEFT SIDE -->
+        <div class="hero-left">
+            <h1 class="hero-title">
+                <a href="index.html" class="home-link">ANNA KIM</a>
+            </h1>
+            <a href="projects-installation.html" class="btn">INSTALLATION</a>
+            <a href="projects-illustration.html" class="btn">ILLUSTRATION</a>
+            <a href="projects-photography.html" class="btn">PHOTOGRAPHY</a>
+            <a href="projects-graphic.html" class="btn">GRAPHIC DESIGN</a>
+            <a href="projects-biography.html" class="btn">BIOGRAPHY</a>
+        </div>
+
+        <!-- RIGHT SIDE (Gallery) -->
+        <div class="hero-right gallery-hero-right">
+            <div class="gallery">
+                <!-- First row: 3 images -->
+                <img src="images/photography-red1.JPG" class="gallery-item gallery-item-1">
+                <img src="images/photography-red2.JPG" class="gallery-item gallery-item-2">
+                <img src="images/photography-red3.jpg" class="gallery-item gallery-item-6">
+                <!-- Second row: main image + stacked images -->
+                <div class="row2-container">
+                    <img src="images/photography-pose.JPG" class="gallery-item gallery-item-3">
+                    <div class="stacked-images">
+                        <img src="images/photogrphy-sw.jpg" class="gallery-item gallery-item-4">
+                        <img src="images/photography-vn.JPG" class="gallery-item gallery-item-5">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</header>
+
+<!-- Lightbox modal -->
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="Large View">
+</div>
+
+<footer>
+    <p>© 2025 Anna Kim | <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+    // Lightbox functionality
+    const galleryImages = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+        });
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

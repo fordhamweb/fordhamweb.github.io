@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Kim | Installation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="projects">
+
+<header class="hero pastel-bg">
+    <div class="hero-content">
+        <!-- LEFT SIDE -->
+        <div class="hero-left">
+            <h1 class="hero-title">
+                <a href="index.html" class="home-link">ANNA KIM</a>
+            </h1>
+            <a href="projects-installation.html" class="btn">INSTALLATION</a>
+            <a href="projects-illustration.html" class="btn">ILLUSTRATION</a>
+            <a href="projects-photography.html" class="btn">PHOTOGRAPHY</a>
+            <a href="projects-graphic.html" class="btn">GRAPHIC DESIGN</a>
+            <a href="projects-biography.html" class="btn">BIOGRAPHY</a>
+        </div>
+
+        <!-- RIGHT SIDE (Free-form Gallery) -->
+        <div class="hero-right panels-hero-right">
+            <div class="panels">
+                <div class="panel-item"><img src="images/installation-tree-main.png" alt="Installation 1"></div>
+                <div class="panel-item"><img src="images/installation-dream-main.png" alt="Installation 2"></div>
+                <div class="panel-item"><img src="images/installation-doors-main.png" alt="Installation 3"></div>
+                <div class="panel-item"><img src="images/installation-baby-main.png" alt="Installation 4"></div>
+                <div class="panel-item"><img src="images/installation-maze-main.jpg" alt="Installation 5"></div>
+                <div class="panel-item"><img src="images/installation-luxuty-main.jpg" alt="Installation 6"></div>
+            </div>
+
+            <!-- Lightbox for enlarged image -->
+            <div id="panels-lightbox" class="panels-lightbox">
+                <span class="close-btn">&times;</span>
+                <img src="" alt="Enlarged View">
+                <div class="info" id="panels-info"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<footer>
+    <p>© 2025 Anna Kim | <a href="contact.html">Contact</a></p>
+</footer>
+
+<!-- Scripts -->
+<script>
+    const panelItems = document.querySelectorAll('.panel-item img');
+    const lightbox = document.getElementById('panels-lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const info = document.getElementById('panels-info');
+    const closeBtn = lightbox.querySelector('.close-btn');
+
+    // Titles for each panel image
+    const titles = [
+        "Growth",
+        "Dream Sequence",
+        "Life",
+        "Birth",
+        "The Cognitive",
+        "The Coat"
+    ];
+
+    // Open lightbox on click
+    panelItems.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+            info.textContent = titles[index];
+        });
+    });
+
+    // Close lightbox
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+
+    // Close when clicking outside image
+    lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

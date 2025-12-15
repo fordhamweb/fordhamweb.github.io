@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Kim | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home">
+
+<header class="hero pastel-bg">
+    <div class="hero-content">
+        <!-- LEFT SIDE -->
+        <div class="hero-left">
+            <h1 class="hero-title"><a href="index.html" class="home-link">ANNA KIM</a></h1>
+            <a href="projects-installation.html" class="btn">INSTALLATION</a>
+            <a href="projects-illustration.html" class="btn">ILLUSTRATION</a>
+            <a href="projects-photography.html" class="btn">PHOTOGRAPHY</a>
+            <a href="projects-graphic.html" class="btn">GRAPHIC DESGIN</a>
+            <a href="projects-biography.html" class="btn">BIOGRAPHY</a>
+        </div>
+        <!-- RIGHT SIDE (images) -->
+        <div class="hero-right">
+            <div class="slideshow">
+                <img src="images/photography-pose.JPG" class="slide">
+                <img src="images/photography-red2.JPG" class="slide">
+                <img src="images/illust-young.png" class="slide active">
+                <img src="images/illustroom-dawn.png" class="slide">
+                <img src="images/illustroom-day.png" class="slide">
+                <img src="images/illustroom-dark.png" class="slide">
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Lightbox modal -->
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="Large View">
+</div>
+
+<section class="intro">
+    <h2>Welcome!</h2>
+    <p>
+        This is a page dedicated to myself, a creative designer with a passion in branding, illustration, UX, and more.
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 Anna Kim | <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 5000);
+</script>
+</body>
+</html>
+
+</body>
+</html>
+
