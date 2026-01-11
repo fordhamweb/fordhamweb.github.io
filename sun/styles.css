@@ -1,0 +1,114 @@
+/*==== ANIMATION: LUM ====*/
+
+
+@keyframes breathe {
+	0% {
+		transform: scale(1.0);
+		box-shadow:
+		inset 0 0 50px #fff,
+		inset 20px 0 80px #FFEA00,
+		inset -20px 0 80px #FFF000,
+		inset 20px 0 300px #FFB100,
+		inset -20px 0 300px #F9FF00,
+		0 0 50px #fff,
+		-10px 0 80px #FFFD00,
+		10px 0 80px #FF9800;
+	}
+	100% {
+		transform: scale(2.0);
+		box-shadow:
+		inset 0 0 50px #fff,
+		inset 20px 0 80px #2600ff,
+		inset -20px 0 80px #0048ff,
+		inset 20px 0 300px #009dff,
+		inset -20px 0 300px #00ffdd,
+		0 0 50px #fff,
+		-10px 0 140px #00ffe5,
+		10px 0 140px #00ddff;
+	}
+}
+
+
+
+@keyframes updown {
+	0% {
+	   transform: translate(0, -16px);
+	 }
+	
+	10% {
+	   transform: translate(0, -14px);
+	 }
+
+	50% {
+	   transform: translate(0, 0);
+	}
+	
+	90% {
+	   transform: translate(0, 14px);
+	}
+
+	100% {
+	   transform: translate(0, 16px);
+	}
+}
+
+
+/*==== BACKGROUND ====*/
+
+
+body{
+		background: url("assets/back-day.png"), linear-gradient(to bottom, #2ab0ed 1%,#9fd8ef 58%,#bfe8f9 82%,#e4f5fc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+} 
+
+.container {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.bounce {
+	animation: updown 1s linear infinite alternate;
+	
+}
+
+/* LUM: HEAD */
+
+.head {
+	animation: breathe 1.4s ease infinite alternate;
+	width: 50px;
+    height: 50px;
+	border-radius: 50%;
+	opacity: 50%;
+  	box-shadow:
+		inset 0 0 50px #fff,
+		inset 20px 0 80px #FFEA00,
+		inset -20px 0 80px #FFF000,
+		inset 20px 0 300px #FFB100,
+		inset -20px 0 300px #F9FF00,
+		0 0 50px #fff,
+		-10px 0 80px #FFFD00,
+		10px 0 80px #FF9800;
+}
+.head2 {
+	animation: breathe 3s ease infinite alternate-reverse;
+	width: 150px;
+    height: 150px;
+	border-radius: 50%;
+		opacity: 50%;
+
+  	box-shadow:
+		inset 0 0 50px #fff,
+		inset 20px 0 80px #FFEA00,
+		inset -20px 0 80px #FFF000,
+		inset 20px 0 300px #FFB100,
+		inset -20px 0 300px #F9FF00,
+		0 0 50px #fff,
+		-10px 0 80px #FFFD00,
+		10px 0 80px #FF9800;
+}
+
+
