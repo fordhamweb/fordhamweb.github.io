@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: rgb(59, 46, 34);
+}
+h1 {
+    font-size: 60px;
+    margin: 100px 100px 10px 100px;
+    /* shorthand is top right bottom left */
+    color: rgb(216, 151, 12);
+}
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0 0 50px 100px;
+    color: gray;
+}
+p {
+    font-size: 36px;
+    margin: 50px 100px 50px 100px;
+    color: white;
+}
+.indent {
+    margin-left: 200px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.first {
+    color: rgba(255, 255, 255, 0.25);
+}
+.last {
+    color: rgba(255, 255, 255, 0.9);
+}
+img {
+    width: 100%;
+    margin-left: 100px;
+}
+.imageone {
+    width: 30%;
+}
+.imagetwo {
+    width: 50%;
+}
+.imagethree {
+    width: 75%;
+}
+.imagefour {
+    width: 100%;
+}
+h6 {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 50px 100px 50px 100px;
+    color: gray;
+}
+a {
+    color: teal;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    color: pink;
+}
