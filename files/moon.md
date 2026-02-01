@@ -20,7 +20,7 @@ https://www.youtube.com/watch?v=uTChrirK-hw
 ---
 
 Pick a Topic
-(find 2-3 images and write a small description of each image)
+Create a new section and design a layout with 2-3 images and a small description of each image.
 
 ---
 
