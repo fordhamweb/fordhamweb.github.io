@@ -19,6 +19,11 @@ https://www.youtube.com/watch?v=uTChrirK-hw
  
 ---
 
+Pick a Topic
+(find 2-3 images and write a small description of each image)
+
+---
+
 The Phases of the Moon
 
 New
