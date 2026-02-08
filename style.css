@@ -169,10 +169,12 @@ padding-top: 2em;
 #content li {
   list-style-type: disc;
   margin-left: 1em;
+	margin-bottom: 5px;
 }
 #content ul ul li {
   margin-left: 3em;
   list-style-type: circle;
+	margin-bottom: 5px;
 }
 #content a {
   color: blue;
