@@ -16,11 +16,6 @@ It's really difficult for humans to survive on the moon in any permanent fashion
 
 https://www.youtube.com/watch?v=nOcDftgR5UQ
 https://www.youtube.com/watch?v=uTChrirK-hw
- 
----
-
-Pick a Topic
-Create a new section and design a layout with 2-3 images and a small description of each image.
 
 ---
 
