@@ -5,8 +5,25 @@
 }
 
 body {
-    background-color: gray;
+    background: #33CCCC;
+    animation-name: colorchange;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
 }
+
+@keyframes colorchange {
+  0%   { background-color: #33CCCC; } /* Start color */
+  20%  { background-color: #33CC36; }
+  40%  { background-color: #343a0f; }
+  60%  { background-color: #1e1801; }
+  80%  { background-color: #082c09; }
+  100% { background-color: #33CCCC; } /* End color */
+}
+
 
 #orb-one {
     width: 100%;
@@ -71,14 +88,14 @@ h1 {
 }
 .a {
     position: absolute;
-    top: 5%;
-    left: 10%;
+    top: 20%;
+    left: 20%;
     animation: pulsate 2s ease-in-out infinite alternate;
 }
 .b {
     position: absolute;
-    right: 5%;
-    bottom: 10%;
+    right: 25%;
+    top: 30%;
     animation: pulsate 5s ease-in-out 2s infinite alternate;
 
 }
@@ -98,26 +115,3 @@ h1 {
     }
 }
 
-@media screen and (max-width:1000px) {
-    body {
-        background-color: pink;
-    }
-    #orb-one {
-        background-color: yellow;
-    }
-    #orb-two {
-        background-color: aqua;
-    }
-}
-
-@media screen and (max-width:700px) {
-    body {
-        background-color: blue;
-    }
-    #orb-one {
-        background-color: green;
-    }
-    #orb-two {
-        background-color: silver;
-    }
-}
