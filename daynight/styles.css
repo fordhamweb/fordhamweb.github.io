@@ -1,0 +1,94 @@
+body{
+	background: linear-gradient(to bottom, #2ab0ed 1%,#9fd8ef 58%,#bfe8f9 82%,#e4f5fc 100%); 
+} 
+
+.container {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+/* CIRCLES */
+@keyframes enlarge {
+	0% {
+		transform: scale(1) rotate(0deg);
+	}
+	100% {
+		transform: scale(2)  rotate(30deg);
+	}
+}
+
+.smallcircle {
+	animation: enlarge 2s infinite alternate;
+	/* animation name - duration - delay - iteration count - direction */
+	width: 100px;
+    height: 100px;
+	border-radius: 50%;
+	opacity: 80%;
+background-image: url(images/daytrees.jpg);
+background-size: cover;
+	position: relative;
+	z-index: 98;
+}
+.bigcircle {
+	animation: enlarge 6s infinite alternate-reverse;
+	/* animation name - duration - delay - iteration count - direction */
+	width: 300px;
+    height: 300px;
+	border-radius: 40% 60% 50% 70%;
+background-image: url(images/dayclouds.jpg);
+background-size: cover;
+}
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	text-transform: uppercase;
+	color: yellow;
+	position: relative;
+	z-index: 99;
+}
+.night {
+	display: none;
+}
+.instructions {
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	font-size: 10px;
+	width: 100%;
+	color: gray;
+}
+
+
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1000px) {
+    body {
+	background: linear-gradient(to bottom, #003249 1%,#2c3437 58%,#4d2929 82%,#43153c 100%); 
+    }
+	.container {
+	flex-direction: column;
+	}
+	.smallcircle {
+	background-image: url(images/nightlights.jpg);
+	animation: enlarge 1s infinite alternate;
+	}
+	.bigcircle {
+	background-image: url(images/nightsky.jpg);
+	animation: enlarge 2s infinite alternate-reverse;
+	width: 100px;
+    height: 100px;
+	}
+	.night {
+	display: block;
+	font-size: 20px;
+	}
+	.day {
+	display: none;
+	}
+}
+
