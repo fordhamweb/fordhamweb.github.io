@@ -1,0 +1,106 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+section {
+	padding: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.streets {
+	height: 100vh;
+	width: 100%;
+	background-image: url(images/streets.png);
+	background-size: cover;
+	background-position: center;
+}
+h2 {
+	font-size: 5vw;
+	line-height: 1.4;
+}
+.walking {
+	width: 20%;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+/* the second instance of class name walking */
+.walking:nth-of-type(2) {
+	width: 40%;
+}
+/* the third instance of class name walking */
+.walking:nth-of-type(3) {
+	width: 60%;
+}
+.choose div {
+width: 50%;
+}
+.choose div a {
+	background-color: black;
+	display: block;
+	margin: 10%;
+	padding: 10%;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	transition: all 1s;
+}
+.choose div a:hover {
+	background-color: red;
+}
+.blackbg {
+	background-color: black;
+	color: white;
+}
+.clock {
+	height: 80vh;
+	width: 100%;
+	background-image: url(images/clock.png);
+	background-size: contain;
+	background-position: center;
+	background-repeat: repeat;
+}
+.clock:hover {
+	background-image: url(images/watch2.png);
+}
+.quote div {
+	width: 50%;
+}
+
+@keyframes grow {
+	0% {
+		transform: scale(100%);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(200%);
+		opacity: 0.5;		
+	}
+}
+.animate {
+	animation: grow 1s 0s infinite alternate;
+}
+
+.police {
+	height: 80vh;
+	width: 100%;
+	background-image: url(images/police.png);
+	background-size: contain;
+	background-position: center;
+	background-repeat: repeat;
+}
+.police:hover {
+	background-image: url(images/police3.png);
+}
+.streets-end {
+	height: 100vh;
+	width: 100%;
+	background-image:url(images/street2.png);
+	background-size: cover;
+	background-position: center;
+}
