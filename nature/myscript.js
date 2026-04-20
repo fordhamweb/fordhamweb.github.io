@@ -35,5 +35,16 @@ $("a").click(function(){
 });
 
 
+// more flowers section with accordion effects
+
+$("#box1 .open").click(function(){
+    $("#box1 .panel").slideToggle("slow");
+});
+
+$("#box2 .open").click(function(){
+    $("#box2 .panel").slideToggle("fast");
+});
+
+
 
 });
