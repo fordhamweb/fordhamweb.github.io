@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+  font-family:'Times New Roman', Times, serif;
+  font-style: normal;
+    font-size: 16px;
+    background-color: pink;
+    line-height: 1.4;
+}
+
+.caveat {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 7vw;
+  color: black;
+  text-align: center;
+  margin: 50px 0;
+}
+img {
+    width: 80%;
+    height: auto;
+}
+.tilt {
+    padding: 20px;
+    background-color: white;
+    rotate: 3deg;
+    box-shadow: 2px 2px 5px black;
+}
+.tilt2 {
+    padding: 20px;
+    background-color: white;
+    rotate: -3deg;
+    box-shadow: 2px 2px 5px black;
+}
+
+#headline {
+    width: 80%;
+    margin: 50px auto 50px auto;
+    position: relative;
+}
+section {
+    width: 80%;
+    margin: 300px auto;
+    display: flex;
+}
+.column {
+    width: 50%;
+    padding: 0 30px;
+}
+h2 {
+    margin-bottom: 30px;
+    font-size: 5vw;
+    color: rgb(186, 112, 125);
+}
+.products {
+display: flex;
+flex-wrap: wrap;
+}
+.products img {
+    width: 120px;
+    background: white;
+    height: 120px;
+    box-shadow: 2px 2px 5px black;
+    margin: 50px 20px 0 0;
+    rotate: -3deg;
+}
+
