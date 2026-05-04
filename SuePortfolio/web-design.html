@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Design — Sue Wari</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --pink: #FFD4EF;
+      --muted: #555;
+      --border: #1c1c1c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--pink);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.3s;
+    }
+    .cursor.hover {
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1px solid var(--pink);
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3rem;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-home {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .nav-home:hover { opacity: 1; }
+
+    .nav-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .page-hero {
+      padding: 12rem 3rem 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-category {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    /* ── SITE GRID ── */
+    .sites-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    .site-card {
+      background: #000;
+      padding: 3.5rem 3rem;
+      text-decoration: none;
+      color: var(--pink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,212,239,0);
+      transition: border-color 0.3s;
+      pointer-events: none;
+    }
+
+    .site-card:hover { background: #0a0a0a; }
+    .site-card:hover::after { border-color: rgba(255,212,239,0.12); }
+
+    .site-number {
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      margin-bottom: auto;
+    }
+
+    .site-title {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 2rem 0 0.8rem;
+      color: var(--pink);
+    }
+
+    .site-caption {
+      font-size: 0.75rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .site-arrow {
+      font-size: 1.1rem;
+      color: var(--pink);
+      opacity: 0.25;
+      align-self: flex-end;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+
+    .site-card:hover .site-arrow {
+      opacity: 1;
+      transform: translate(4px, -4px);
+    }
+
+    /* Empty placeholder cards */
+    .site-card.placeholder {
+      border: 1px dashed #1a1a1a;
+      background: transparent;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .site-card.placeholder .site-title { color: #333; }
+
+    @media (max-width: 640px) {
+      .sites-grid { grid-template-columns: 1fr; }
+      nav, .page-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .site-card { padding: 2.5rem 1.5rem; }
+    }
+
+    footer {
+      padding: 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--pink); }
+    footer span {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: #2a2a2a;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <a href="index.html" class="nav-home">← Sue Wari</a>
+    <span class="nav-title">Web Design</span>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-category">Digital</p>
+    <h1 class="page-title">Web Design</h1>
+  </div>
+
+  <div class="sites-grid">
+
+    <a href="https://swari-alt.github.io/Web-Design-Class/excercise%202" class="site-card">
+      <span class="site-number">01</span>
+      <div>
+        <div class="site-title">Ten Principles for Good Design</div>
+        <div class="site-caption">Add a short description of this project — what it is, your role, the tools used.</div>
+      </div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <!-- Site 2 -->
+    <a href="https://swari-alt.github.io/Web-Design-Class/project1  " class="site-card">
+      <span class="site-number">02</span>
+      <div>
+        <div class="site-title">Traveling Through Nepal</div>
+        <div class="site-caption">Add a short description of this project — what it is, your role, the tools used.</div>
+      </div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <!-- Site 3 -->
+    <a href="https://swari-alt.github.io/Web-Design-Class/excercise%203 " class="site-card">
+      <span class="site-number">03</span>
+      <div>
+        <div class="site-title">intro (end of the world) Interactive</div>
+        <div class="site-caption">Add a short description of this project — what it is, your role, the tools used.</div>
+      </div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <!-- Site 4 -->
+    <a href="https://swari-alt.github.io/Web-Design-Class/ex4 " class="site-card">
+      <span class="site-number">04</span>
+      <div>
+        <div class="site-title">Jane Dough</div>
+        <div class="site-caption">Add a short description of this project — what it is, your role, the tools used.</div>
+      </div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <!-- Site 5 -->
+    <a href="https://swari-alt.github.io/Web-Design-Class/narrative-project" class="site-card">
+      <span class="site-number">05</span>
+      <div>
+        <div class="site-title">My Morning Routine</div>
+        <div class="site-caption">Add a short description of this project — what it is, your role, the tools used.</div>
+      </div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+  </div>
+
+  <footer>
+    <a href="index.html">← Back to home</a>
+    <span>Sue Wari</span>
+    <a href="mailto:sueowari@gmail.com">sueowari@gmail.com</a>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  </script>
+
+</body>
+</html>

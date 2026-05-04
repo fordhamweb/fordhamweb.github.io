@@ -1,0 +1,293 @@
+<style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #FFD4EF;
+      --white: #1a1a1a;
+      --ink: #1a1a1a;
+      --muted: #888;
+      --accent: #b05080;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+   
+
+    /* ── HERO ── */
+    #hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-name {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-align: center;
+      cursor: none;
+      position: relative;
+      user-select: none;
+      transition: opacity 0.4s;
+    }
+
+    /* Personal statement hidden by default */
+    .personal-statement {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(600px, 90vw);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .personal-statement h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+      color: var(--white);
+    }
+
+    .personal-statement p {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(26, 26, 26, 0.75);
+      letter-spacing: 0.02em;
+    }
+
+    #hero:hover .hero-name { opacity: 0; }
+    #hero:hover .personal-statement { opacity: 1; }
+
+
+
+    #statement {
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .statement-image {
+      flex: 0 0 50%;
+      min-height: 100vh;
+      object-fit: cover;
+      display: block;
+      /* Placeholder until real image is provided */
+      background-image:
+        repeating-linear-gradient(
+          120deg,
+          rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px,
+          transparent 1px, transparent 12px
+        ),
+        linear-gradient(160deg, #bfb8ae 0%, #9c9186 50%, #7a7167 100%);
+    }
+
+    .statement-image.real-img {
+      background: none;
+    }
+
+    .statement-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+    }
+
+    .statement-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .statement-text p {
+      font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+      font-weight: 300;
+      line-height: 1.9;
+      color: #3a3a3a;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.4em;
+    }
+
+    .statement-text p:last-of-type { margin-bottom: 0; }
+
+    .statement-caption {
+      margin-top: 2.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #ddd;
+    }
+
+    .statement-caption p:first-child {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+    }
+
+    .statement-caption p:last-child {
+      font-size: 0.73rem;
+      color: #888;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 768px) {
+      #statement { flex-direction: column; }
+      .statement-image { flex: 0 0 auto; min-height: 55vw; width: 100%; }
+      .statement-right { padding: 3rem 2rem; }
+    }
+
+    /* ── WORK GRID ── */
+    #work {
+      background: var(--black);
+      padding: 6rem 2rem;
+    }
+
+    .work-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #e8b8d8;
+    }
+
+    .work-cell {
+      background: var(--black);
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+
+    .work-cell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .work-cell:hover::before { opacity: 0.08; }
+
+    .work-cell-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.35s;
+    }
+    .work-cell:hover .work-cell-icon { transform: scale(1.1) translateY(-4px); }
+
+    .work-cell-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .work-cell-sub {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hover border flash */
+    .work-cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(200,184,154,0);
+      transition: border-color 0.4s;
+    }
+    .work-cell:hover::after { border-color: rgba(200,184,154,0.35); }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--black);
+      padding: 5rem 2rem 6rem;
+      text-align: center;
+      border-top: 1px solid #e8b8d8;
+    }
+
+    .contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-email {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,26,26,0.2);
+      padding-bottom: 0.2rem;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .contact-email:hover { color: var(--accent); border-color: var(--accent); }
+
+    .contact-footer {
+      margin-top: 4rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: #c090b0;
+      text-transform: uppercase;
+    }
+  
+
+.work-cell-icon {
+    width: 600px;
+    height: 600px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sue Wari</title>
+  
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <h1 class="hero-name">Sue Wari</h1>
+    <div class="personal-statement">
+      <h2>Hi, I'm Sue</h2>
+      <p>I'm studying visual arts and urban studies with the intention of bringing
+      communities to life through Urban Design. My passion lies in creating thoughtful,
+      people-centered spaces that foster connection and identity.</p>
+    </div>
+
+  </section>
+
+  <!-- ── WORK GRID ── -->
+  <section id="work">
+    <p class="work-label">Selected Work</p>
+    <div class="work-grid">
+
+      <a href="projects.html" class="work-cell">
+        <img src="images/framedprojecticon.jpg" alt="Projects" class="work-cell-icon" />
+<div class="work-cell-title">Projects</div>
+<div class="work-cell-sub">Built Environment &amp; Urban Design</div>
+      </a>
+
+      <a href="graphic-design.html" class="work-cell">
+        <img src="images/laptoppink.JPG" alt="Projects" class="work-cell-icon" />
+        <div class="work-cell-title">Graphic Design</div>
+        <div class="work-cell-sub">Print &amp; visual identity</div>
+      </a>
+
+      <a href="web-design.html" class="work-cell">
+        <img src="images/blackcursor.jpg" alt="Projects" class="work-cell-icon" />
+        <div class="work-cell-title">Web Design</div>
+        <div class="work-cell-sub">Interactive &amp; digital</div>
+      </a>
+
+      <a href="writing.html" class="work-cell">
+          <img src="images/mailopenpink.JPG" alt="Projects" class="work-cell-icon" />
+          <div class="work-cell-title">Writing</div>
+          <div class="work-cell-sub">Essays &amp; research</div>
+      </a>
+
+
+   
+    </div>
+  </section>
+
+  <!-- ── ARTIST STATEMENT + ARTWORK (image left, text right) ── -->
+  <section id="statement">
+    <!--
+      Replace this <div> with an <img> once you have the image file, e.g.:
+      <img src="your-artwork.jpg" alt="Sites of the city" class="statement-image real-img" />
+    -->
+    <img src="images/CitySites.jpg" alt="Sites of the city" class="statement-image real-img" />
+
+    <div class="statement-right">
+      <p class="statement-label">Artist Statement</p>
+      <div class="statement-text">
+        <p>My name is Sue Wari, and I am a Visual Arts student at Fordham University.
+        I aim to explore the significance of the spaces we inhabit and build. My work
+        draws inspiration from human experience, examining how our emotions and inner
+        states are reflected in the environments we create.</p>
+
+        <p>I am particularly interested in the intersection between the physical space
+        and the psychological space we occupy, and how these elements influence our
+        perception of the world around us.</p>
+
+        <p>As a student also pursuing a minor in Writing, I enjoy bridging the worlds
+        of the visual and the textual, incorporating narrative elements into my artwork
+        to deepen the viewer's connection with the piece. My work primarily uses mixed
+        media, combining sketching, charcoal, and digital tools like Photoshop, to
+        create layered and dynamic expressions of these themes. Through this combination
+        of mediums, I aim to evoke both the tangible and intangible aspects of human
+        experience, inviting the viewer to reflect on the emotional resonance of the
+        spaces they occupy.</p>
+      </div>
+
+      <div class="statement-caption">
+        <p>Sites of the city</p>
+        <p>2023 &nbsp;·&nbsp; Charcoal &nbsp;·&nbsp; 24″ × 36″ &nbsp;·&nbsp; Personal Project</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <p class="contact-label">Get in touch</p>
+    <a class="contact-email" href="mailto:sueowari@gmail.com">sueowari@gmail.com</a>
+    <p class="contact-footer">© 2024 Sue Wari</p>
+  </section>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, .work-cell, .hero-name').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  </script>
+
+</body>
+</html>

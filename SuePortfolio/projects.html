@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Sue Wari</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --pink: #FFD4EF;
+      --muted: #555;
+      --border: #1c1c1c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--pink);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3rem;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-home {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .nav-home:hover { opacity: 1; }
+
+    .nav-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .folder-bar {
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #000;
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem;
+      overflow-x: auto;
+    }
+
+    .folder-tab {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 1rem 1.8rem;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+      transition: color 0.2s, background 0.2s;
+    }
+    .folder-tab:first-child { border-left: 1px solid var(--border); }
+    .folder-tab:hover, .folder-tab.active {
+      color: var(--pink);
+      background: #0f0f0f;
+    }
+
+    .page-hero {
+      padding: 14rem 3rem 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-category {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--pink);
+    }
+
+    /* ── PROJECT SECTION ── */
+    .project-section {
+      padding: 6rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-section:last-of-type { border-bottom: none; }
+
+    .project-index {
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--pink);
+    }
+
+    .project-meta {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    /* Image grid */
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .project-img-slot {
+      aspect-ratio: 4/3;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      color: #2a2a2a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-img-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-placeholder-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #2a2a2a;
+    }
+
+    .img-placeholder-icon {
+      width: 32px; height: 32px;
+      border: 1px solid #2a2a2a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .project-description {
+      max-width: 640px;
+    }
+
+    .project-description p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #aaa;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── HAUS MEDIA LAYOUT ── */
+    .haus-media {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .haus-media-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .haus-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .haus-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+      background: #000;
+    }
+
+    .haus-video-placeholder {
+      aspect-ratio: 16/9 !important;
+    }
+
+    .haus-caption {
+      padding: 0.9rem 0 0;
+      border-top: 1px solid var(--border);
+      margin-top: 0;
+    }
+
+    .haus-caption-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--pink);
+      margin-bottom: 0.25rem;
+    }
+
+    .haus-caption-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .haus-media { grid-template-columns: 1fr; }
+    }
+
+    /* ── CONTACT FOOTER ── */
+    footer {
+      padding: 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--pink); }
+
+    footer span {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: #2a2a2a;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <a href="index.html" class="nav-home">← Sue Wari</a>
+    <span class="nav-title">Built Environment</span>
+  </nav>
+
+  <!-- FOLDER BAR -->
+  <div class="folder-bar">
+    <a href="#amager" class="folder-tab active">Amager Spine</a>
+    <a href="#fordham" class="folder-tab">Fordham Air Cleaner</a>
+    <a href="#haus" class="folder-tab">Haus</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <p class="page-category">Projects</p>
+    <h1 class="page-title">Urban &amp;<br>Spatial Design</h1>
+  </div>
+
+  <!-- PROJECT 1: AMAGER SPINE -->
+  <section class="project-section" id="amager">
+    <p class="project-index">01 / 03</p>
+    <div class="project-header">
+      <h2 class="project-name">Amager Spine</h2>
+      <div class="project-meta">
+    
+        Urban Design<br>
+        2025 &amp;Photoshop, InDesign
+      </div>
+    </div>
+    <div class="project-images">
+     
+      <div class="project-img-slot">
+        <img src="images/connect.png" alt="Amager Spine" />
+        <span class="img-placeholder-label">Community Feedback</span>
+      </div>
+
+      <div class="project-img-slot">
+        <img src="images/coding.png" alt="Amager Spine" />
+        <span class="img-placeholder-label">Coding Data</span>
+      </div>
+
+      <div class="project-img-slot">
+        <img src="images/Q1-4.png" alt="Amager Spine" />
+        <span class="img-placeholder-label">Regions</span>
+      </div>
+
+      <div class="project-img-slot">
+        <img src="images/final.png" alt="Amager Spine" />
+        <span class="img-placeholder-label">Visual</span>
+      </div>
+
+    </div>
+    <div class="project-description">
+      <p>While studying abroad in Copenhagen, I participated in an urban design studio focused on the redevelopment of an underutilized site. The project began with precedent studies and field research, including semi-structured interviews with residents in the Amagerbro district. Qualitative data from these interviews was systematically coded to identify recurring spatial, social, and programmatic needs. These insights informed a data-driven design strategy, resulting in context-responsive proposals for each quadrant of the site, grounded in a community-centered framework. Alongside my partner, we produced "Amager Spine"</p>
+    </div>
+  </section>
+
+  <!-- PROJECT 2: FORDHAM AIR CLEANER -->
+  <section class="project-section" id="fordham">
+    <p class="project-index">02 / 03</p>
+    <div class="project-header">
+      <h2 class="project-name">Fordham Gate Reimagined</h2>
+      <div class="project-meta">
+        Spatial Design<br>
+        2024 &amp; SketchUp, InDesign
+      </div>
+    </div>
+    <div class="project-images">
+      <div class="project-img-slot">
+        <img src="images/context.png" />
+        <span class="img-placeholder-label">Current Context</span>
+      </div>
+
+       <div class="project-img-slot">
+        <img src="images/sketch.png" />
+        <span class="img-placeholder-label">Planning</span>
+      </div>
+
+
+      <div class="project-img-slot">
+        <img src="images/Machine.png" />
+        <span class="img-placeholder-label">Design</span>
+      </div>
+
+      <div class="project-img-slot">
+        <img src="images/final poster.jpg" />
+        <span class="img-placeholder-label">Final</span>
+      </div>
+
+    </div>
+    <div class="project-description">
+      <p>My goal was to design urban furniture that highlights the nuances of human interaction with land and its distortion, while preserving culture. My proposal aimed to redefine systems of separation. In response to Asthma Alley and the spatial vulnerabilities of the Bronx, I reimagined the gate as a machine powered by the sounds of the streets—what makes the Bronx unique—that moves along Fordham Street to purify the air, benefiting both Fordham and the surrounding community.</p>
+    </div>
+  </section>
+
+
+  <!-- PROJECT 3: HAUS -->
+  <section class="project-section" id="haus">
+    <p class="project-index">03 / 03</p>
+    <div class="project-header">
+      <h2 class="project-name">Haus</h2>
+      <div class="project-meta">
+        Design Study<br>
+        2024 &amp; Mixed Media
+      </div>
+    </div>
+
+    <div class="haus-media">
+
+      <!-- photo -->
+      <div class="haus-media-item">
+        <!--
+          Replace the div below with your image:
+          <img src="haus-photo.jpg" alt="Haus" class="haus-img" />
+        -->
+        <div class="project-img-slot haus-img">
+        <img src="images/Haus.png" alt="Haus" class="haus-img" />
+        </div>
+        <div class="haus-caption">
+          <p class="haus-caption-title">Haus</p>
+          <p class="haus-caption-sub">2024 &nbsp;·&nbsp; cardboard</p>
+        </div>
+      </div>
+
+      <!-- VIDEO -->
+      <div class="haus-media-item">
+
+        <video src="Vart Project 4 - _Home_-1 (1).mov" controls class="haus-video"></video>
+
+        <div class="haus-caption">
+          <p class="haus-caption-title">Haus & Home</p>
+          <p class="haus-caption-sub">2024 &nbsp;·&nbsp; 2:01</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="project-description">
+      <p>I explored the evolution of culture and its representation in the home, blending my Papua New Guinean roots with the American culture I was raised in. Using materials like cardboard, acrylic paint, and hay, I constructed a house that embodies this fusion. Additionally, I developed my visual skills through videography for my final project, Home.</p>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html">← Back to home</a>
+    <span>Sue Wari</span>
+    <a href="mailto:sueowari@gmail.com">sueowari@gmail.com</a>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  </script>
+
+</body>
+</html>

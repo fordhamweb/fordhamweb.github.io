@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design — Sue Wari</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --pink: #FFD4EF;
+      --muted: #555;
+      --border: #1c1c1c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--pink);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.3s;
+    }
+    .cursor.hover {
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1px solid var(--pink);
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3rem;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-home {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .nav-home:hover { opacity: 1; }
+
+    .nav-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .page-hero {
+      padding: 12rem 3rem 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-category {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .gallery {
+      padding: 4rem 3rem;
+      columns: 2;
+      column-gap: 1px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1px;
+      position: relative;
+      overflow: hidden;
+      background: #080808;
+      border: 1px solid var(--border);
+    }
+
+    .gallery-img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-slot {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      background: #080808;
+    }
+
+    .gallery-slot.tall { aspect-ratio: 2/3; }
+    .gallery-slot.wide { aspect-ratio: 4/3; }
+
+    .slot-icon {
+      width: 28px; height: 28px;
+      border: 1px solid #2a2a2a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #2a2a2a;
+    }
+
+    .slot-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #2a2a2a;
+    }
+
+    /* Caption overlay on hover */
+    .gallery-item .caption-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 2rem 1.2rem 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .caption-overlay { opacity: 1; }
+
+    .caption-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      margin-bottom: 0.2rem;
+    }
+
+    .caption-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: #aaa;
+    }
+
+    @media (max-width: 640px) {
+      .gallery { columns: 1; padding: 2rem 1.5rem; }
+      nav { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding: 10rem 1.5rem 4rem; }
+    }
+
+    footer {
+      padding: 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--pink); }
+    footer span {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: #2a2a2a;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <a href="index.html" class="nav-home">← Sue Wari</a>
+    <span class="nav-title">Graphic Design</span>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-category">Visual Identity &amp; Print</p>
+    <h1 class="page-title">Graphic<br>Design</h1>
+  </div>
+
+  <!--
+    GALLERY INSTRUCTIONS:
+    Replace each .gallery-slot div with an <img> tag inside .gallery-item, e.g.:
+      <div class="gallery-item">
+        <img src="your-image.jpg" alt="Project name" class="gallery-img" />
+        <div class="caption-overlay">
+          <div class="caption-title">Project Name</div>
+          <div class="caption-sub">2024 · Medium</div>
+        </div>
+      </div>
+    Use class "tall" or "wide" on .gallery-slot for different proportions.
+  -->
+  <div class="gallery">
+
+    <div class="gallery-item">
+      <div class="gallery-slot tall">
+        <img src="images/passionfruit1.png" alt="Project name" class="gallery-img" />
+        <div class="caption-overlay">
+          <div class="caption-title">Passionfruit</div>
+          <div class="caption-sub">2024 · InDesign</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-slot tall">
+          <img src="images/senz.png" alt="Project name" class="gallery-img" />
+          <div class="caption-overlay">
+            <div class="caption-title">Senz Promotional</div>
+            <div class="caption-sub">2024 · InDesign</div>
+          </div>
+        </div>
+
+   
+
+    <div class="gallery-item">
+      <div class="gallery-slot tall">
+        <img src="images/Typophoto-Booklet.png" alt="Project name" class="gallery-img" />
+        <div class="caption-overlay">
+          <div class="caption-title">Typophoto Booklet</div>
+          <div class="caption-sub">Project 4: Photo Collage, Photoshop   
+          </div>
+        </div>
+      </div>
+
+    <div class="gallery-item">
+      <div class="gallery-slot wide">
+        <img src="images/Booklet-Layout.png" alt="Project name" class="gallery-img" />
+        <div class="caption-overlay">
+          <div class="caption-title">Typophoto Layot</div>
+          <div class="caption-sub">"In the 21st century, technology has connected us but at the cost of privacy. The "dollhouse" metaphor reflects how daily life feels like a performance due to constant recording and sharing online. Technology has blurred the line between living and performing, distancing us from reality.
+            "  - Sue Wari
+          </div>
+        </div>
+      </div>
+
+  <footer>
+    <a href="index.html">← Back to home</a>
+    <span>Sue Wari</span>
+    <a href="mailto:sueowari@gmail.com">sueowari@gmail.com</a>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  </script>
+
+</body>
+</html>

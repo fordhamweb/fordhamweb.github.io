@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — Sue Wari</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --pink: #FFD4EF;
+      --muted: #555;
+      --border: #1c1c1c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--pink);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.3s;
+    }
+    .cursor.hover {
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1px solid var(--pink);
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3rem;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-home {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .nav-home:hover { opacity: 1; }
+
+    .nav-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .page-hero {
+      padding: 12rem 3rem 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-category {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .writing-list {
+      padding: 0 3rem;
+    }
+
+    .writing-entry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .writing-entry:last-child { border-bottom: none; }
+
+    .entry-number {
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .entry-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.5rem;
+      color: var(--pink);
+    }
+
+    .entry-caption {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #999;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .entry-tag {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+
+    .entry-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,212,239,0.25);
+      padding-bottom: 0.25rem;
+      transition: border-color 0.25s, gap 0.25s;
+    }
+    .entry-link:hover {
+      border-color: var(--pink);
+      gap: 1rem;
+    }
+
+
+    .entry-preview {
+      background: #080808;
+      border: 1px solid var(--border);
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .preview-label span { color: #2a2a2a; }
+
+    .entry-preview iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+
+    .external-card {
+      background: #080808;
+      border: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+    }
+
+    .external-card-top {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .external-card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--pink);
+      margin: 2rem 0 1rem;
+    }
+
+    .external-card-pub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .external-card-arrow {
+      font-size: 1.5rem;
+      color: var(--pink);
+      opacity: 0.3;
+      align-self: flex-end;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    a:hover .external-card-arrow {
+      opacity: 1;
+      transform: translate(4px, -4px);
+    }
+
+    @media (max-width: 768px) {
+      .writing-entry { grid-template-columns: 1fr; gap: 2rem; }
+      nav, .writing-list { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding: 10rem 1.5rem 4rem; }
+    }
+
+    footer {
+      padding: 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--pink); }
+    footer span {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: #2a2a2a;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <a href="index.html" class="nav-home">← Sue Wari</a>
+    <span class="nav-title">Writing</span>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-category">Written Work</p>
+    <h1 class="page-title">Writing</h1>
+  </div>
+
+  <div class="writing-list">
+
+    <!-- ENTRY 1: PDF -->
+    <div class="writing-entry">
+      <div>
+        <p class="entry-number">01</p>
+        <span class="entry-tag">Critical Analysis · Interior Design</span>
+        <h2 class="entry-title">A House vs. A Home</h2>
+        <p class="entry-caption">A critical analysis of <em>The House</em> (2022), exploring how architecture functions as a metaphor for materialism and its impact on human relationships across time.</p>
+        <a class="entry-link" href="A_House_vs__A_Home.pdf" target="_blank">
+          Read PDF →
+        </a>
+      </div>
+      <div class="entry-preview">
+        <div class="preview-label">Preview <span>· PDF</span></div>
+        <iframe src="A House vs. A Home.pdf" title="A House vs. A Home PDF preview"></iframe>
+      </div>
+    </div>
+
+    <div class="writing-entry">
+      <div>
+        <p class="entry-number">02</p>
+        <span class="entry-tag">Design Analysis · Published</span>
+        <h2 class="entry-title">After School Special</h2>
+        <p class="entry-caption">A design analysis for MODE Magazine exploring 2000s teen interiors through MTV Cribs and Lizzie McGuire, highlighting how bold aesthetics and emerging technology shaped youth identity.</p>
+        <a class="entry-link" href="https://issuu.com/fordhammodemagazine/docs/after_school_special_-_part_2/11" target="_blank">
+          Read on Issuu →
+        </a>
+      </div>
+      <a href="https://issuu.com/fordhammodemagazine/docs/after_school_special_-_part_2/11" target="_blank" style="text-decoration:none;">
+        <div class="external-card">
+          <div class="external-card-top">Fordham MODE Magazine</div>
+          <div>
+            <div class="external-card-title">After School Special — Part 2</div>
+            <div class="external-card-pub">Issuu · fordhammodemagazine</div>
+          </div>
+          <div class="external-card-arrow">↗</div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="index.html">← Back to home</a>
+    <span>Sue Wari</span>
+    <a href="mailto:sueowari@gmail.com">sueowari@gmail.com</a>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  </script>
+
+</body>
+</html>
