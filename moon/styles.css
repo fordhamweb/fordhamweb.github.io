@@ -24,7 +24,7 @@ html {
 }
 .ibm-plex-serif-regular {
   font-family: "IBM Plex Serif", serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -106,6 +106,10 @@ li a:hover {
     width: 50%;
     z-index: 10;
 }
+h2 {
+    font-size: 40px;
+    line-height: 1.5;
+}
 h3 {
     margin: 20px 0 0 0;
 }
@@ -142,11 +146,13 @@ h3 a:visited {
     background-position: bottom;
 }
 h4 {
-    font-size: 24px;
+    font-size: 28px;
     margin: 0 0 20px 0;
+    background-color: rgb(0, 9, 111);
+    display: inline-block;
 }
 h5 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
@@ -267,9 +273,9 @@ p {
 }
 #poem p {
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     text-transform: none;
-    line-height: 2;
+    line-height: 2.5;
 }
 #poem {
     background-image: url(moon-images/stars.jpg);
@@ -336,12 +342,14 @@ p {
     left: 0;
     animation: movemoon 5s 0s infinite alternate;
 /* animation name - duration - delay - iteration count - direction */
+/* alternate	
+    The animation is played forwards first, then backwards */
     z-index: 4;
 }
 @keyframes movemoon {
     0% {top: 0; left: 0;}
-    50% {top: 50%;}
-    100% {left: 50%;}
+    50% {top: 50%; left: 0;}
+    100% {top: 50%; left: 50%;}
 }
 #poem .bluemoon {
     width: 200px;
@@ -352,14 +360,16 @@ p {
     z-index: 3;
 }
 @keyframes rotatemoon {
-    0% {transform: rotate(0deg) scale(1,1) translate(0,0); opacity: 1;}
-    100% {transform: rotate(360deg) scale(4,4) translate(0,50%); opacity: 0;}
+    0% {transform: rotate(0deg) scale(1,1); opacity: 1; left: 0;}
+    100% {transform: rotate(360deg) scale(4,4); opacity: 0; left: 80%;}
 }
 #poem .bwmoon {
     width: 300px;
     height: 300px;
     top: 0;
     left: 0;
-    animation: movemoon 10s 4s infinite alternate, rotatemoon 5s 0s infinite alternate;
+    animation: movemoon 10s 4s infinite alternate-reverse, rotatemoon 5s 0s infinite alternate-reverse;
+    /* alternate-reverse	
+    The animation is played backwards first, then forwards */
     z-index: 2;
 }
