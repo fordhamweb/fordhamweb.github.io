@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(90deg,rgba(212, 254, 255, 1) 0%, rgba(255, 242, 252, 1) 50%, rgba(255, 250, 207, 1) 100%);
+}
+.container {
+    width: 100%;
+    height: 100vh;
+/* 3 properties move the children to the center of the parent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.smallcircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url(images/trees.jpg);
+    background-size: cover;
+    animation: enlarge 2s 0s infinite alternate;
+}
+.largecircle {
+    width: 300px;
+    height: 300px;
+    background-image: url(images/clouds.jpg);
+    background-size: cover;
+    border-radius: 40% 60% 50% 70%;
+    animation: enlarge 6s 0s infinite alternate-reverse;
+}
+.morning {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: orange;
+    position: relative;
+    z-index:99;
+}
+
+@keyframes enlarge {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.5) rotate(30deg);
+    }
+}
+
+.instructions {
+    position: fixed;
+    bottom:0;
+    text-align: center;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.afternoon {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px black;
+    position: relative;
+    z-index:99;
+}
+.night {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: gray;
+    font-weight: normal;
+    position: relative;
+    z-index:99;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        background-image: url(images/trees.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .smallcircle {
+        background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+        width: 200px;
+        height: 200px;
+    animation: enlarge 2s 0s infinite alternate-reverse;
+    }
+    .largecircle {
+        background: linear-gradient(0deg,rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+        width: 100px;
+        width: 100px;
+        animation: enlarge 3s 0s infinite alternate;
+    }
+    .morning {
+        display: none;
+    }
+    .afternoon {
+        display: block;
+    }
+    .instructions {
+        color: white;
+    }
+}
+
+@media screen and (max-width: 700px) {
+body {
+    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(26, 26, 74, 1) 35%, rgba(77, 4, 4, 1) 100%);
+}
+.smallcircle {
+    background-image: url(images/nightlights.jpg);
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    animation: enlarge 6s 0s infinite alternate;
+}
+.largecircle {
+    background-image: url(images/nightsky.jpg);
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    animation: enlarge 7s 0s infinite alternate;
+}
+.afternoon {
+    display: none;
+}
+.night {
+    display: block;
+}
+
+}
