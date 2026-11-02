@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+section {
+    padding: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2 {
+    font-size: 4.5vw;
+    line-height: 1.4;
+}
+.streets {
+    background-image: url(kafka-images/streets.png);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.walking {
+    width: 20%;
+}
+.walking:nth-of-type(2) {
+/* the second instance of the class name */
+    width: 30%;
+    margin-top: 100px
+}
+.walking:nth-of-type(3) {
+/* the third instance of the class name */
+    width: 40%;
+    margin-top: 200px
+}
+.person {
+    align-items: flex-start;
+}
+.buttons div {
+    width: 50%;
+}
+.buttons div a {
+    background: black;
+    display: block;
+    margin: 10%;
+    padding: 10%;
+    font-size: 2vw;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: all 1s;
+}
+.buttons div a:hover {
+    background: red;
+}
+.blackbg {
+    background-color: black;
+    color: white;
+}
+.clock {
+    height: 80vh;
+    width: 100%;
+    background-image: url(kafka-images/clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+.clock:hover {
+    background-image: url(kafka-images/watch.png);
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(200%);
+        opacity: 0.2;
+    }
+}
+.animate {
+    animation: grow 1s 0s infinite alternate;
+}
+
+.police {
+    height: 80vh;
+    width: 100%;
+    background-image: url(kafka-images/police.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+.police:hover {
+    background-image: url(kafka-images/police3.png);
+}
+.finalstreet {
+    height: 100vh;
+    width: 100%;
+    background-image: url(kafka-images/streets2.png);
+    background-size: cover;
+    background-position: center;
+}
